@@ -1,0 +1,4 @@
+name = ICZN Blocks
+description = Provides custom blocks for iczn.org
+package = ICZN
+core = 6.x

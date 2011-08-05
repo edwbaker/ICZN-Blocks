@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * Implementation of hook_block().
+ */
+
+function icznblocks_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      $blocks[0]['info'] = t('ICZN front page block');
+	  $blocks[0]['cache'] = BLOCK_CACHE_GLOBAL;
+	  return $blocks;
+    case 'view':
+	  $block = array();
+	  $block['subject'] = t('What does the ICZN do?');
+      $block['content'] = icznblocks_frontpage();
+ 	 return $block;
+  }
+}
+
+function icznblocks_frontpage() {
+  $output  = '<div id="iczn_front_container" style="width:100%">';
+  $output .=   '<table width="100%">';
+  $output .=     '<tr>';
+  $output .=       '<td class="tabs_iczn" id="tab_iczn"><a href="http://iczn.org" onclick="iczn_panel_change'."('the_iczn')".'; return false;">The ICZN</a></td>';
+  $output .=       '<td class="tabs_iczn" id="tab_code"><a href="http://iczn.org/code" onclick="iczn_panel_change'."('the_code')".'; return false;">The Code</a></td>';
+  $output .=       '<td class="tabs_iczn" id="tab_bulletin"><a href="http://iczn.org/category/browse-bulletin/browse" onclick="iczn_panel_change'."('the_bulletin')".'; return false;">The Bulletin</a></td>';
+  $output .=       '<td class="tabs_iczn" id="tab_lists"><a href="http://iczn.org/content/publications" onclick="iczn_panel_change'."('official_lists')".'; return false;">Official Lists</a></td>';#
+  $output .=       '<td class="tabs_iczn" id="tab_donate"><a href="http://iczn.org/content/make-donation" onclick="iczn_panel_change'."('donate')".'; return false;">Donate</a></td>';
+  $output .=     '</tr>';
+  $output .=   '</table>';
+  
+  $output .=   '<div id="iczn_front">';
+  $output .=     '<p><a href="http://iczn.org/files/images/Haeckel_Discomedusae_8.preview.jpg"><img src="http://www.iczn.org/sites/iczn.org/files/iczn_logo.gif" style="float: right;" height="150"></a><p style="text-align: left;">The International Commission on Zoological Nomenclature (ICZN) acts as adviser and arbiter for the zoological community by generating and disseminating information on the correct use of the scientific names of animals.<br><br>The ICZN is responsible for producing the International Code of Zoological Nomenclature - a set of rules for the naming of animals and the resolution of nomenclatural problems</p><p style="font-size: 11px;">Image: <em>Cyanea annasethe</em> (Haeckel, 1879). Complete version of image used on the cover of the Bulletin of Zoological Nomenclature. <a href="content/jellyfish">More details.</a></p>';
+  $output .=   '</div>';
+  $output .= '</div>';
+  
+  drupal_add_js(drupal_get_path('module', 'icznblocks') . '/icznblocks.js');
+  
+  return $output;
+}
