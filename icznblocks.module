@@ -1,4 +1,7 @@
 <?php
+/**
+ * Written by Ed Baker (http://ebaker.me.uk) for the ICZN (http://iczn.org)
+ */
 
 /**
  * Implementation of hook_block().

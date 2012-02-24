@@ -1,4 +1,6 @@
-  function the_iczn() {
+//Written by Ed Baker (http://ebaker.me.uk) for the ICZN (http://iczn.org)
+
+function the_iczn() {
     $("#iczn_front").html('<p><a href="http://iczn.org/files/images/Haeckel_Discomedusae_8.preview.jpg"><img src="http://www.iczn.org/sites/iczn.org/files/iczn_logo.gif" style="float: right;" height="150"></a><p style="text-align: left;">The International Commission on Zoological Nomenclature (ICZN) acts as adviser and arbiter for the zoological community by generating and disseminating information on the correct use of the scientific names of animals.<br><br>The ICZN is responsible for producing the International Code of Zoological Nomenclature - a set of rules for the naming of animals and the resolution of nomenclatural problems</p><p style="font-size: 11px;">Image: <em>Gryllotalpa gryllotalpa</em> (Linneaus, 1758). Complete version of image used on the cover of the Bulletin of Zoological Nomenclature. <a href="content/mole-cricket">More details.</a></p>');
     $('#tab_iczn').css('background-color', 'rgb(6, 52, 85)');
   }
